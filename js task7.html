@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            border: none;
+            background: none;
+            margin-left: 100px;
+            margin-top: 10px;
+            margin-right: 500px;
+        }
+        #main {
+            animation: move 3s linear infinite; /* Set initial state to paused */
+            margin-left: 100px;
+            animation-play-state: paused;
+            background:none;
+            border:none;
+        }
+        #start {
+            font-size: 15px;
+            width: 60px;
+            height: 30px;
+        }
+        #stop {
+            font-size: 15px;
+            width: 60px;
+            height: 30px;
+        }
+        @keyframes move {
+            0% {padding-left: 0%;}
+            100% {padding-left: 80%;}
+        }
+    </style>
+</head>
+<body>
+    <button id="main"><img src="https://thumbs.dreamstime.com/b/handsome-machinist-cartoon-uo-train-smile-waving-pict-handsome-machinist-cartoon-uo-train-smile-waving-102189491.jpg" width="200px" height="200px"></button>
+    <h1>Click the following buttons to handle animation</h1><br>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        var main = document.getElementById("main");
+
+        document.querySelector("#stop").addEventListener('click', function () {
+            document.querySelector("#main").style.animationPlayState = 'paused';
+        });
+        document.querySelector("#start").addEventListener('click', function () {
+            document.querySelector("#main").style.animation = 'move 3s linear infinite';
+            document.querySelector("#main").style.animationPlayState = 'running'; // Start the animation
+        });
+    </script>
+</body>
+</html>

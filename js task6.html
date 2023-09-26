@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Signin Template · Bootstrap v5.0</title>
+
+  
+  <!-- Bootstrap core CSS -->
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:ital,wght@1,600&family=Poppins:wght@700&family=Roboto+Slab&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    #heading {
+      margin-top:0px;
+      text-align: center;
+    }
+    .container{
+      border-radius: 0px;
+      margin-left: 35%;
+      margin-top: 0px;
+      background-color: none;
+      height:50px;
+      width:400px;
+      text-decoration: none;
+    }
+    .box{
+      width:400px;
+      height:340px;
+      margin-left: 35%;
+      background-color: rgb(232, 231, 231);
+      border-radius: 4px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <div class="box">
+    <form>
+      <div class="form" style="margin-top: 100px;">
+        <h1 id="heading" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size:40px;margin-bottom:0px;"><i>Instagram</i></h1>
+        <div class="input-group" style="margin-left:50px;margin-top:30px;width: 300px;">
+          <span class="input-group-text" style="width:40px; height:50px;margin-top:10px;" id="inputGroupPrepend2"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="user--v1"/></span>
+          <input type="text" class="form-control" style="border-radius:2px;width:250px; height:50px;border-width:2px;margin-top:10px;" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" placeholder="Username">
+        </div>
+      </div>
+      <div class="form mb-3">
+        <div class="input-group" style="margin-left:50px;width: 300px;">
+          <span class="input-group-text" style="width:40px; height:50px;" id="inputGroupPrepend2"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/lock--v1.png" alt="lock--v1"/></span>
+          <input type="password" class="form-control" style="border-radius:2px;width:250px; height:50px;border-width:2px;" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" placeholder="Password" required>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary" style="width:300px; height:50px;border-radius:2px;" type="submit" fdprocessedid="odkm1e">Log in</button>
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <label style="width:50%;"> <!-- Fixed width for the checkbox -->
+          <input type="checkbox" value="remember-me" id="checkbox"> Remember me
+        </label>
+        <a href="#" class="link-primary" style="text-decoration:none; width:50%;" id="fp">Forgot Password?</a> <!-- Fixed width for the link -->
+      </div>
+    </form>
+  </div>
+  <div class="container">
+    <p class="mt-3" id="down">Don't have an account! <a href="#" class="link-primary" style="text-decoration:none;" id="down">Sign up here</a>.</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXnALea6EFD5E/5L5F5v5z5r5" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYlT" crossorigin="anonymous"></script>
+</body>
+
+</html>

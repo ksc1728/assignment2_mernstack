@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            border:1px solid black;
+            margin-left: 100px;
+            margin-top: 10px;
+            margin-right: 900px;
+            
+        }
+        #form{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        p{
+            margin-left: 10px;
+        }
+        #num2{
+            margin-top: 8px;
+        }
+        #Multiply{
+            margin-top: 6px;
+        }
+        #Multiply :hover{
+            border-color:  linear-gradient(0deg, #00C0FF 0%, #00C0FF 100%);
+        }
+        #Divide{
+            margin-top: 6px;
+        }
+        #Divide :hover{
+            border-color: linear-gradient(0deg, #00C0FF 0%, #00C0FF 100%);
+        }
+    </style>
+</head>
+<body>
+    <form method="post" id="form">
+        <label for="num1">1st Number: </label>
+        <input type="text" name="num1" id="num1"><br>
+        <label for="num2">2nd Number: </label>
+        <input type="text" name="num2" id="num2"><br>
+        <input type="button" value="Multiply" id="Multiply">
+        <input type="button" value="Divide" id="Divide">
+    </form>
+    <p>The Result is: <br><span id="result"></span></p>
+    <script>
+        var multiplyButton = document.getElementById("Multiply");
+        var divideButton = document.getElementById("Divide");
+        var num1Input = document.getElementById("num1");
+        var num2Input = document.getElementById("num2");
+        var resultDisplay = document.getElementById("result");
+
+        multiplyButton.addEventListener("click", function() {
+            var num1 = parseFloat(num1Input.value);
+            var num2 = parseFloat(num2Input.value);
+            var result = num1 * num2;
+            resultDisplay.textContent = result;
+        });
+
+        divideButton.addEventListener("click", function() {
+            var num1 = parseFloat(num1Input.value);
+            var num2 = parseFloat(num2Input.value);
+            if (num2 !== 0) {
+                var result = num1 / num2;
+                resultDisplay.textContent = result;
+            } else {
+                resultDisplay.textContent = "Cannot divide by zero";
+            }
+        });
+    </script>
+</body>
+</html>

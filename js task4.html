@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: none;
+            margin-left: 100px;
+            margin-top: 10px;
+            margin-right: 900px;
+        }
+
+        #showdate {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="showdate">Show Date</button><br>
+    <p><span id="result-date"></span></p><br>
+    <button id="showtime">Show Time</button><br>
+    <p><span id="result-time"></span></p>
+    <script>
+        var showdate = document.getElementById("showdate");
+        var showtime = document.getElementById("showtime");
+        var date = document.getElementById("result-date");
+        var time = document.getElementById("result-time");
+
+        showdate.addEventListener("click", function() {
+            var currentDate = new Date();
+            let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+            var year = currentDate.getFullYear();
+            var month = currentDate.getMonth(); 
+            var day = currentDate.getDate();
+            var formattedDate = day+"/"+months[month]+"/"+year ;
+            date.textContent = formattedDate;
+        });
+
+        showtime.addEventListener("click", function() {
+            var currentTime = new Date();
+            var formattedTime = currentTime.toString();
+            time.textContent = formattedTime;
+        });
+    </script>
+</body>
+</html>

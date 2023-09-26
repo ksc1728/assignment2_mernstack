@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>enter a string and click the button to get it in alphabetical order</p><br>
+        enter:
+        <input type="text" id="num" name="num">
+        <button id="submit" type="button" onclick="alpha()">submit</button>
+        <p id="submission"></p>
+    </form>
+    
+    <script>
+        function alpha() {
+            let str = document.getElementById("num").value;
+            let ans = str.split('').sort().join('');
+            document.getElementById("submission").innerHTML = ans;
+        }
+    </script>
+</body>
+</html>

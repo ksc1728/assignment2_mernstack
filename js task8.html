@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:linear-gradient(to bottom, #f1f1a0 27%, #cc33ff 100%);
+        }
+        .msg,.msg2,.msg1{
+            display:none;
+            color: red;
+        }
+        table, th, td {
+            margin-left: 200px;
+            border: none;
+            font-family:'Times New Roman', Times, serif;
+        }
+        th{
+            text-align: right;
+            font-size: 18px;
+        }
+        h1{
+            margin-left: 500px;
+            color: blue;
+            font-size:40px;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 1em 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration form</h1>
+    <form action="#" method="post" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" id="FirstName" oninput="hideMsg('FirstName', 'msg')" style="width: 500px;"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Last name</th>
+                <td><input type="text" id="LastName" style="width: 500px;" oninput="hideMsg('LastName', 'msg')"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" id="Email" style="width: 500px;" oninput="hideMsg('Email', 'msg')"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" id="Password" style="width: 500px;" name="password" oninput="verifyPassword()"/><span class="msg1">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Re-enter Password</th>
+                <td><input type="password" id="RePassword" style="width: 500px;" name="re-password" oninput="confirmPassword()"/><span class="msg2">POOR OR MISMATCH</span></td>
+            </tr>
+            <tr >
+                <th rowspan="2">Gender</th>
+                <td><input type="radio" id="Gender" name="gender" value="Male"/>Male</td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="Gender" name="gender" value="Female"/>Female</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td><input type="text" id="Age" style="width: 500px;" oninput="hideMsg('Age', 'msg')"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="text" id="PhoneNumber" style="width: 500px;" oninput="hideMsg('PhoneNumber', 'msg')"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><textarea id="Address" oninput="hideMsg('Address', 'msg')" name="Address" rows="8" cols="66"></textarea><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><input type="text" id="State" style="width: 500px;" oninput="hideMsg('State', 'msg')"/><span class="msg">POOR</span></td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td><select id="Country" name="country" value="country" style="width: 150px;">
+                    <option selected disabled hidden>Choose your country </option>
+                    <option>US</option>
+                    <option>India</option>
+                    <option>Pakistan</option>
+                  </select></td>
+            </tr>
+            <tr>
+                <th>Languages known</th>
+                <td><input type="checkbox" id="Language">English 
+                    <input type="checkbox" id="Language">Kannada 
+                    <input type="checkbox" id="Language">Hindi 
+                    <input type="checkbox" id="Language">Telugu </td>
+            </tr>
+            <tr >
+                <td style="text-align:left; font-size:18px;" colspan="2"><input type="checkbox" id="Agree"/>Hereby I declare all the given details are true</td>
+            </tr>
+            <tr>
+                <td style="text-align:right; font-size:18px;" colspan="2" >Log in to <a href="#" style="color:rgb(97, 19, 170)">Ethnus</a> website</td>
+            </tr>
+        </table>
+    </form>
+    <button id="btn" style="margin-left: 570px; margin-top:10px; padding:4px; border: 2px solid black; border-radius:20px; color:white; height:40px; width:150px; font-size:20px; background-color: red;" disabled>REGISTER</button>
+    <script>
+        const btn = document.getElementById("btn");
+        const agreeCheckbox = document.getElementById("Agree");
+        
+        function hideMsg(elementId, className) {
+            var inputElement = document.getElementById(elementId);
+            var inputValue = inputElement.value.trim();
+            var msgElement = inputElement.parentElement.querySelector('.' + className);
+        
+            if (inputValue === "") {
+                msgElement.textContent = "POOR";
+                msgElement.style.display = "inline-block";
+                btn.disabled = true;
+                return false;
+            } else {
+                msgElement.style.display = "none";
+                btn.disabled = !agreeCheckbox.checked || !verifyPassword() || !confirmPassword();
+                return true;
+            }
+        }
+        
+        function verifyPassword() {
+            var pw = document.getElementById("Password").value;
+            var pwLength = pw.length;
+            var msg1 = document.querySelector(".msg1");
+            if (pwLength === 0) {
+                msg1.innerHTML = "POOR";
+                msg1.style.display = "inline-block";
+                btn.disabled = true;
+                return false;
+            } else if (pwLength < 8) {
+                msg1.innerHTML = "Password is too short";
+                msg1.style.display = "inline-block";
+                btn.disabled = true;
+                return false;
+            } else {
+                msg1.style.display = "none";
+                btn.disabled = !agreeCheckbox.checked;
+                return true;
+            }
+        }
+
+        function confirmPassword() {
+            var pw = document.getElementById("Password").value;
+            var rePw = document.getElementById("RePassword").value;
+            var msg2 = document.querySelector(".msg2");
+            if (rePw === pw) {
+                msg2.style.display = "none";
+                btn.disabled = !agreeCheckbox.checked;
+                return true;
+            } else {
+                msg2.innerHTML = "POOR OR MISMATCH";
+                msg2.style.display = "inline-block";
+                btn.disabled = true;
+                return false;
+            }
+        }
+
+        function validateForm() {
+            var isPasswordValid = verifyPassword();
+            var isConfirmPasswordValid = confirmPassword();
+            if (isPasswordValid && isConfirmPasswordValid) {
+                alert("Form submitted successfully!");
+                return true; // Allow form submission
+            } else {
+                alert("Please fix the errors in the form.");
+                return false; // Prevent form submission
+            }
+        }
+        
+        agreeCheckbox.addEventListener("change", function () {
+            btn.disabled = !this.checked || !verifyPassword() || !confirmPassword();
+        });
+    </script>
+</body>
+</html>
